@@ -4,25 +4,15 @@
 
 <p>Location: <%= @listing.country.name %></p>
 <p>Description: <%= @listing.description %></p>
-<p> Available Dates:
+<%= content_tag :div, class: 'dates', data: {dates: @dates} do %> 
+Available Dates:
 	<% @listing.available_dates.each do |date| %>
 	<%= date.date.strftime("%a %d %b") %>,
 	<% end %>
-</p>
+<% end %>
 <p>Max Guests Allowed: <%= @listing.max_guests %></p>
 
 <% if reservation_exists?(@listing.id) %>
 <h3>Book Now!</h3>
 <%= render 'reservations/new'%>
 <% end %>
-
-<script>
-	var dates = "<%= @dates %>"
-
-	alert(dates)
-	$( "#start-date-picker" ).datepicker({
-	});
-
-	$( "#end-date-picker" ).datepicker({
-	});
-</script>
