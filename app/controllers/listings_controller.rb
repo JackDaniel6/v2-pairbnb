@@ -16,7 +16,7 @@ class ListingsController < ApplicationController
   		listing_dates["available_dates"].split(",").each{ |date|
   			@listing.available_dates.create!(date: Date.strptime(date, '%m/%d/%Y'), availability: true)
   		}
-  		redirect to @listing
+  		redirect_to @listing
   	else
   		render 'new'
   	end
