@@ -15,6 +15,6 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
-//= require jquery-ui
+//= require jquery-ui/datepicker
 //= require jquery-ui.multidatespicker
 //= require listing

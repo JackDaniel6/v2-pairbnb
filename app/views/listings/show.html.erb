@@ -9,3 +9,20 @@
 	<%= date.date.strftime("%a %d %b") %>,
 	<% end %>
 </p>
+<p>Max Guests Allowed: <%= @listing.max_guests %></p>
+
+<% if reservation_exists?(@listing.id) %>
+<h3>Book Now!</h3>
+<%= render 'reservations/new'%>
+<% end %>
+
+<script>
+	var dates = "<%= @dates %>"
+
+	alert(dates)
+	$( "#start-date-picker" ).datepicker({
+	});
+
+	$( "#end-date-picker" ).datepicker({
+	});
+</script>

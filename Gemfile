@@ -13,7 +13,6 @@ gem 'sdoc',         '0.4.0', group: :doc
 gem 'jquery-ui-rails', '~> 5.0', '>= 5.0.5'
 gem 'multi-dates-picker-rails', '~> 0.1.1'
 
-
 group :development, :test do
   gem 'sqlite3',     '1.3.9'
   gem 'byebug',      '3.4.0'

@@ -1,0 +1,9 @@
+<%= form_for(:reservations, url: new_reservation_path) do |f| %>
+	<%= f.label "Start Date"%>
+	<%= f.text_field :start_date, id: 'start-date-picker',class: 'form-control'  %>
+	<%= f.label "End Date"%>
+	<%= f.text_field :end_date, id: 'end-date-picker',class: 'form-control'  %>
+	<%= f.label "Number of Guests" %>
+	<%= f.collection_select :num_guests, (1..@listing.max_guests).to_a , :to_s, :to_s, :prompt => true %>
+	<%= f.submit "Click here to submit your listing", class: "btn btn-primary" %>
+<% end %>
