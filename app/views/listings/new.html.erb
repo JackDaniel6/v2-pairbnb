@@ -13,6 +13,8 @@
 		<%= f.text_field :max_guests, class: 'form-control'  %>
 		<%= f.label :description %>
 		<%= f.text_field :description, class: 'form-control'  %>
+		<%= f.label "Available Dates" %>
+		<%= f.text_field :available_dates, id: 'date-field',class: 'form-control'  %>
 		<%= f.submit "Click here to submit your listing", class: "btn btn-primary" %>
 	<% end %>
   </div>
