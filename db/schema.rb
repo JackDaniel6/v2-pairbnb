@@ -11,7 +11,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151016074109) do
+ActiveRecord::Schema.define(version: 20151019011524) do
+
+  create_table "available_dates", force: :cascade do |t|
+    t.integer  "listing_id"
+    t.date     "date"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.boolean  "availability"
+  end
+
+  add_index "available_dates", ["listing_id"], name: "index_available_dates_on_listing_id"
+
+  create_table "countries", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "listings", force: :cascade do |t|
+    t.integer  "country_id"
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "description"
+    t.integer  "max_guests"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "listings", ["country_id"], name: "index_listings_on_country_id"
+  add_index "listings", ["user_id"], name: "index_listings_on_user_id"
+
+  create_table "reservations", force: :cascade do |t|
+    t.integer  "listing_id"
+    t.integer  "user_id"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "num_guests"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "reservations", ["listing_id"], name: "index_reservations_on_listing_id"
+  add_index "reservations", ["user_id"], name: "index_reservations_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
