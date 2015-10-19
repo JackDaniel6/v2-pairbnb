@@ -8,7 +8,10 @@ class ListingsController < ApplicationController
   end
 
   def create
-  	@listing = Listing.new(params[listing_params])
+  	@listing = Listing.new(listing_params)
+  	debugger
+  	@listing.user_id = current_user.id if current_user
+  	debugger
   end
 
   private
