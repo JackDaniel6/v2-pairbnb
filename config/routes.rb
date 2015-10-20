@@ -5,13 +5,19 @@ Rails.application.routes.draw do
   get 'about' => 'static_pages#about'
 
   get 'signup' => 'users#new'
-  resources :users
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
 
-  resources :listings
+  resources :users do
+    resources :reservations
+  end
+
+  resources :listings do 
+    resources :reservations
+  end
+
   resources :reservations
 
   # The priority is based upon order of creation: first created -> highest priority.

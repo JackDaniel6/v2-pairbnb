@@ -12,7 +12,17 @@ Available Dates:
 <% end %>
 <p>Max Guests Allowed: <%= @listing.max_guests %></p>
 
-<% if reservation_exists?(@listing.id) %>
-<h3>Book Now!</h3>
-<%= render 'reservations/new'%>
+
+<% if current_user.id == @listing.user_id%>
+
+	<h3>This are the reservations for your listing </h3>
+	<%= render @listing.reservations %>
+
+<% else  %>
+	<% if reservation_exists?(@listing.id) %>
+		<h3>Book Now!</h3>
+		<%= render 'reservations/new'%>
+	<% else %>
+		<h3> You have made a reservation for this listing. Please click here to view your reservations </h3>
+	<% end %>
 <% end %>
