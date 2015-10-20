@@ -19,12 +19,24 @@ $(document).ready(function(){
 	  }
 	}
 
+	function findMaxDate(minDate) {
+		var i = availableDates.indexOf(minDate)
+		var date = new Date(availableDates[i])
+		dmy = pad(date.getMonth()+1) + "-" + pad(date.getDate()) + "-" + date.getFullYear();
+		do {
+		    date.setDate(date.getDate() + 1);
+	  		dmy = pad(date.getMonth()+1) + "-" + pad(date.getDate()) + "-" + date.getFullYear();
+		}
+		while ($.inArray(dmy, availableDates) != -1);
+		return dmy
+	}
+
 	$( "#start-date-picker" ).datepicker({
 		dateFormat: "mm-dd-yy",
 		beforeShowDay: available,
 		onSelect: function(date) {
-            alert(date);
             $("#end-date-picker").datepicker('option', 'minDate', new Date(date));
+            $("#end-date-picker").datepicker('option', 'maxDate', new Date(findMaxDate(date)));
         }
 	});
 
