@@ -1,7 +1,7 @@
 class ListingsController < ApplicationController
   def index
-    title = params[:title]
-    country_id = params[:country_id][0].to_i
+    title = params[:title] if !params[:title].nil?
+    country_id = params[:country_id][0].to_i if !params[:country_id].nil?
     @list = Listing.search(title, country_id)
     params[:title] = nil
     params[:country_id] = nil
