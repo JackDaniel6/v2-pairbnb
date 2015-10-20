@@ -5,7 +5,7 @@
 <p>Location: <%= @listing.country.name %></p>
 <p>Description: <%= @listing.description %></p>
 <%= content_tag :div, class: 'dates', data: {dates: @dates} do %> 
-Available Dates:
+	Available Dates:
 	<% @listing.available_dates.where(availability: true).each do |date| %>
 	<%= date.date.strftime("%a %d %b") %>,
 	<% end %>
