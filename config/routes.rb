@@ -10,13 +10,9 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
 
-  resources :users do
-    resources :reservations
-  end
+  resources :users
 
-  resources :listings do 
-    resources :reservations
-  end
+  resources :listings
 
   resources :reservations
 

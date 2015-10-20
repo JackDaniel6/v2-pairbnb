@@ -11,7 +11,7 @@ $(document).ready(function(){
 
 	function available(date) {
 	  dmy = pad(date.getMonth()+1) + "-" + pad(date.getDate()) + "-" + date.getFullYear();
-	  console.log(dmy+' : '+($.inArray(dmy, availableDates)));
+	  // console.log(dmy+' : '+($.inArray(dmy, availableDates)));
 	  if ($.inArray(dmy, availableDates) != -1) {
 	    return [true, "","Available"];
 	  } else {

@@ -11,6 +11,7 @@ gem 'turbolinks',   '2.3.0'
 gem 'jbuilder',     '2.2.3'
 gem 'sdoc',         '0.4.0', group: :doc
 gem 'jquery-ui-rails', '~> 5.0', '>= 5.0.5'
+gem 'jquery-turbolinks'
 gem 'multi-dates-picker-rails', '~> 0.1.1'
 
 group :development, :test do

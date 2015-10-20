@@ -27,6 +27,5 @@ class ReservationsController < ApplicationController
 	     # something interesting by date
 	     AvailableDate.find_by(listing_id: listing_id, date: date).update(availability: false)
 	  end
-	  byebug
 	end
 end

@@ -1,4 +1,8 @@
 class ListingsController < ApplicationController
+  def index
+    @list = Listing.all
+  end
+
   def show
   	@listing = Listing.find(params[:id])
     @dates = @listing.available_dates.where( availability: true ).map {|x| x = x.date.strftime("%m-%d-%Y") }
