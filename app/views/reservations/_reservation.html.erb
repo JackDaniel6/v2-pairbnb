@@ -1,4 +1,18 @@
-<p>Reserved by: <%= reservation.user.name %></p>
-<p>Guests Num: <%= reservation.num_guests %></p>
-<p>Start Date Num: <%= reservation.start_date %></p>
-<p>End Date Num: <%= reservation.end_date %></p>
+<li class="list-group-item">
+	<div class="container-fluid ">
+		<div class="row">
+			<div class="col-sm-3">
+				Reserved by: <p><%= reservation.user.name %></p>
+			</div>
+			<div class="col-sm-3">
+				Guests Num: <p><%= reservation.num_guests %></p>
+			</div>
+			<div class="col-sm-3">
+				Start Date: <p><%= reservation.start_date %></p>
+			</div>
+			<div class="col-sm-3">
+				End Date: <p><%= reservation.end_date %></p>
+			</div>
+		</div>
+	</div>
+</li>

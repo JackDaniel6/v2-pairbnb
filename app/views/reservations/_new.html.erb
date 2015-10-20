@@ -1,10 +1,26 @@
+<div class="container-fluid">
 <%= form_for(:reservation, url: reservations_path) do |f| %>
 	<%= f.hidden_field(:listing_id, :value => @listing.id ) %>
-	<%= f.label "Start Date"%>
-	<%= f.text_field :start_date, id: 'start-date-picker',class: 'form-control'  %>
-	<%= f.label "End Date"%>
-	<%= f.text_field :end_date, id: 'end-date-picker',class: 'form-control'  %>
-	<%= f.label "Number of Guests" %>
-	<%= f.collection_select :num_guests, (1..@listing.max_guests).to_a , :to_s, :to_s, :prompt => true %>
-	<%= f.submit "Click here to make your reservation", class: "btn btn-primary" %>
+	<div class="row">
+		<div class="col-sm-4">
+		<%= f.label "Start Date"%>
+		<%= f.text_field :start_date, id: 'start-date-picker'%>
+		</div>
+		<div class="col-sm-4">
+		<%= f.label "End Date"%>
+		<%= f.text_field :end_date, id: 'end-date-picker'%>
+		</div>
+		<div class="col-sm-4">
+		<%= f.label "Number of Guests" %>
+		<%= f.collection_select :num_guests, (1..@listing.max_guests).to_a , :to_s, :to_s, :prompt => true %>
+		</div>
+	</div>
+	<div class="row">
+	<div class="col-sm-3"></div>
+	<div class="col-sm-6">
+		<%= f.submit "Click here to make your reservation", class: "btn btn-primary" %>
+	</div>
+	<div class="col-sm-3"></div>
+	</div>
 <% end %>
+</div>

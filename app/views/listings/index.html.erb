@@ -1,3 +1,9 @@
-<% @list.each do |listing| %>
-	<p><%= link_to listing.title, listing_path(listing) %></p>
-<% end %>
+<ul class="list-group">
+	<% @list.each do |listing| %>
+		<li class="list-group-item">
+			<h4><%= link_to listing.title, listing_path(listing) %></h4>
+			<p>Location: <%= listing.country.name %></p>
+			<p>Description: <%= listing.description %></p>
+		</li>
+	<% end %>
+</ul>

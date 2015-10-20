@@ -13,4 +13,16 @@
  *= require_tree .
  *= require_self
  *= require mdp
+ *= require list-group
  */
+
+.list-group-item {
+	border-left-style: none;
+	border-right-style: none;
+}
+
+.navbar-form {
+	vertical-align: middle;
+	margin-top: 4px;
+	margin-bottom: 4px;
+}

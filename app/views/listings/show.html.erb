@@ -4,7 +4,7 @@
 
 <p>Location: <%= @listing.country.name %></p>
 <p>Description: <%= @listing.description %></p>
-<%= content_tag :div, class: 'dates', data: {dates: @dates} do %> 
+<%= content_tag :p, class: 'dates', data: {dates: @dates} do %> 
 	Available Dates:
 	<% @listing.available_dates.where(availability: true).each do |date| %>
 	<%= date.date.strftime("%a %d %b") %>,
@@ -21,7 +21,9 @@
 <% else  %>
 	<% if reservation_exists?(@listing.id) %>
 		<h3>Book Now!</h3>
-		<%= render 'reservations/new'%>
+		<ul class="list-group">
+			<%= render 'reservations/new'%>
+		</ul>
 	<% else %>
 		<h3> You have made a reservation for this listing. Please click here to view your reservations </h3>
 	<% end %>

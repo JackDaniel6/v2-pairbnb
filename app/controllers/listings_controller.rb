@@ -1,6 +1,9 @@
 class ListingsController < ApplicationController
   def index
-    @list = Listing.all
+    title = params[:title]
+    country_id = params[:country_id][0].to_i
+    @list = Listing.search(title, country_id)
+    flash[:danger] = "Your search returned no results" if @list.nil?
   end
 
   def show
