@@ -52,7 +52,6 @@ class ListingsController < ApplicationController
     end
 
   	def listing_params
-      byebug
   		params.require(:listing).permit(:title, :description, :max_guests, :country_id, {photos: []})
   	end
 

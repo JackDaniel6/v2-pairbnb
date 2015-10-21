@@ -2,6 +2,15 @@
 
 <h1><%= @listing.title %></h1>
 
+<div class= "row">
+	<div class="col-sm-12">
+	<% @listing.photos.length.times do |i| %>
+		<%= link_to @listing.photos[i].url do %>
+		<%= image_tag(@listing.photos[i].url(:thumb), alt: "Missing image") %>
+		<% end %>
+	<% end %>
+	</div>
+</div>
 <p>Location: <%= @listing.country.name %></p>
 <p>Description: <%= @listing.description %></p>
 <%= content_tag :p, class: 'dates', data: {dates: @dates} do %> 
