@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
-	attr_accessor :remember_token
+  attr_accessor :remember_token, :image
 	before_save { self.email = email.downcase }
+
+
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	validates :name, 	presence: true,
 						length: { maximum: 50 }
@@ -13,6 +15,8 @@ class User < ActiveRecord::Base
 
   has_many :listings
   has_many :reservations
+
+  mount_uploader :profile_photo, ProfilePhotoUploader
 
   # Returns a random token.
   def User.new_token
