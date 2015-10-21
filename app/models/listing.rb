@@ -1,8 +1,11 @@
 class Listing < ActiveRecord::Base
+	attr_accessor :photos
 	belongs_to :user
 	belongs_to :country
 	has_many :available_dates
 	has_many :reservations
+	serialize :photos, Array
+	mount_uploader :photos, PhotoUploader
 
 	def self.search_by_title(query)
 	  	where("title like ?", "%#{query}%") 

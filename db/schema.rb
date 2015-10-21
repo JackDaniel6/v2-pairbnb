@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151021020525) do
+ActiveRecord::Schema.define(version: 20151021060003) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "available_dates", force: :cascade do |t|
     t.integer  "listing_id"
@@ -21,7 +24,7 @@ ActiveRecord::Schema.define(version: 20151021020525) do
     t.boolean  "availability"
   end
 
-  add_index "available_dates", ["listing_id"], name: "index_available_dates_on_listing_id"
+  add_index "available_dates", ["listing_id"], name: "index_available_dates_on_listing_id", using: :btree
 
   create_table "countries", force: :cascade do |t|
     t.string   "name"
@@ -37,10 +40,11 @@ ActiveRecord::Schema.define(version: 20151021020525) do
     t.integer  "max_guests"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.text     "photos"
   end
 
-  add_index "listings", ["country_id"], name: "index_listings_on_country_id"
-  add_index "listings", ["user_id"], name: "index_listings_on_user_id"
+  add_index "listings", ["country_id"], name: "index_listings_on_country_id", using: :btree
+  add_index "listings", ["user_id"], name: "index_listings_on_user_id", using: :btree
 
   create_table "reservations", force: :cascade do |t|
     t.integer  "listing_id"
@@ -52,8 +56,8 @@ ActiveRecord::Schema.define(version: 20151021020525) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "reservations", ["listing_id"], name: "index_reservations_on_listing_id"
-  add_index "reservations", ["user_id"], name: "index_reservations_on_user_id"
+  add_index "reservations", ["listing_id"], name: "index_reservations_on_listing_id", using: :btree
+  add_index "reservations", ["user_id"], name: "index_reservations_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -65,6 +69,6 @@ ActiveRecord::Schema.define(version: 20151021020525) do
     t.string   "profile_photo"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
 end

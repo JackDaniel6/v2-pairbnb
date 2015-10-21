@@ -16,6 +16,7 @@ gem 'multi-dates-picker-rails', '~> 0.1.1'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'rmagick'
 gem 'faker', '~> 1.5'
+gem 'pg',             '0.17.1'
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'
@@ -31,7 +32,6 @@ group :test do
 end
 
 group :production do
-  gem 'pg',             '0.17.1'
   gem 'rails_12factor', '0.0.2'
   gem 'puma',           '2.11.1'
 end
