@@ -11,15 +11,17 @@ $(document).ready(function(){
 			$('.nav-tabs li:nth-child(1)').removeClass("active");
 		});
 
-	// initial load for user-profile
-  	$.ajax({
-	    url: window.location.href + "/listings",
-	    method: "GET",
-	    success: function(response){
-	    	$html = $.parseHTML( response )
-	    	$('.profile-content').html($html)
-	    }
-	});
+	// initial load for user-profile, only loads is class user-profile exists
+	if( $('.user-profile').length > 0 ){
+	  	$.ajax({
+		    url: window.location.href + "/listings",
+		    method: "GET",
+		    success: function(response){
+		    	$html = $.parseHTML( response )
+		    	$('.profile-content').html($html)
+		    }
+		});
+	};
 
 
 	$('#mylistings').on('click hover', function () {

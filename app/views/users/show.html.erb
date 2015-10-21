@@ -1,21 +1,24 @@
 <%= provide(:title, "#{@user.name}'s Profile")%>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= avatar_for @user %>
-        <%= @user.name %>
-      </h1>
-      <%= @user.email %>
-    </section>
-  </aside>
-</div>
 
-<div class="container-fluid">
-	<ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" id="mylistings" class="active"><a href="">My Listings</a></li>
-        <li role="presentation" id="myreservations"><a href="">My Reservations</a></li>
-	</ul>
-	<div class="profile-content">
-	</div>
+<div class="user-profile">
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <h1>
+          <%= avatar_for @user %>
+          <%= @user.name %>
+        </h1>
+        <%= @user.email %>
+      </section>
+    </aside>
+  </div>
+
+  <div class="container-fluid">
+  	<ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" id="mylistings" class="active"><a href="">My Listings</a></li>
+          <li role="presentation" id="myreservations"><a href="">My Reservations</a></li>
+  	</ul>
+  	<div class="profile-content">
+  	</div>
+  </div>
 </div>
