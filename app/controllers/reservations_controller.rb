@@ -20,6 +20,15 @@ class ReservationsController < ApplicationController
 		end
 	end
 
+  def edit
+  end
+
+  def update
+  end
+
+  def destroy
+  end
+
   private
     def find_parent
       return User.find(params[:user_id]) if !params[:user_id].nil?

@@ -18,6 +18,37 @@ class DatabaseSeeder
 		  end
 		end
 	end
+
+	def self.seed_admin_user
+		User.create!(
+			name: "adminuser",
+			email: "mingxiangchan@gmail.com",
+			password: "123456",
+			password_confirmation: "123456"
+			)
+	end
+
+	def self.seed_listings
+		10.times do |i|
+			puts "creating #{i}th listing"
+			@listing = Listing.create!(
+				country_id: rand(1..240),
+				user_id: 1,
+				title: Faker::Lorem.sentence(rand(1..8)),
+				description: Faker::Lorem.paragraph(rand(1..3)),
+				max_guests: rand(1..6)
+				)
+
+			date_array =[]
+			35.times do 
+				date = Faker::Date.forward(50)
+				date_array << date
+			end
+			date_array.uniq.each { |date| @listing.available_dates.create!(date: date, availability: true) }
+		end
+	end
 end
 
 DatabaseSeeder.seed_countries
+DatabaseSeeder.seed_admin_user
+DatabaseSeeder.seed_listings

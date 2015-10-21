@@ -13,8 +13,9 @@ gem 'sdoc',         '0.4.0', group: :doc
 gem 'jquery-ui-rails', '~> 5.0', '>= 5.0.5'
 gem 'jquery-turbolinks'
 gem 'multi-dates-picker-rails', '~> 0.1.1'
-gem 'carrierwave'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'rmagick'
+gem 'faker', '~> 1.5'
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'

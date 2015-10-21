@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151021020711) do
+ActiveRecord::Schema.define(version: 20151021020525) do
 
   create_table "available_dates", force: :cascade do |t|
     t.integer  "listing_id"
@@ -28,15 +28,6 @@ ActiveRecord::Schema.define(version: 20151021020711) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  create_table "listing_photos", force: :cascade do |t|
-    t.integer  "listing_id"
-    t.string   "photo"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "listing_photos", ["listing_id"], name: "index_listing_photos_on_listing_id"
 
   create_table "listings", force: :cascade do |t|
     t.integer  "country_id"
