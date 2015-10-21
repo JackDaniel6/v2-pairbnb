@@ -38,9 +38,9 @@ ActiveRecord::Schema.define(version: 20151021060003) do
     t.string   "title"
     t.text     "description"
     t.integer  "max_guests"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.text     "photos"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.text     "photos",      default: [],              array: true
   end
 
   add_index "listings", ["country_id"], name: "index_listings_on_country_id", using: :btree
