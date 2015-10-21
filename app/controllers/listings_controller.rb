@@ -1,11 +1,17 @@
 class ListingsController < ApplicationController
   def index
-    title = params[:title] if !params[:title].nil?
-    country_id = params[:country_id][0].to_i if !params[:country_id].nil?
-    @list = Listing.search(title, country_id)
-    params[:title] = nil
-    params[:country_id] = nil
-    flash.now[:danger] = "Your search returned no results" if @list == []
+    #check if nested under user
+    if find_parent
+      @list = find_parent.listings.all
+      render layout: false
+    else
+      title = params[:title] if !params[:title].nil?
+      country_id = params[:country_id][0].to_i if !params[:country_id].nil?
+      @list = Listing.search(title, country_id)
+      params[:title] = nil
+      params[:country_id] = nil
+      flash.now[:danger] = "Your search returned no results" if @list == []
+    end
   end
 
   def show
@@ -32,6 +38,10 @@ class ListingsController < ApplicationController
   end
 
   private
+    def find_parent
+      User.find(params[:user_id]) if !params[:user_id].nil?
+    end
+
   	def listing_params
   		params.require(:listing).permit(:title, :description, :max_guests, :country_id)
   	end

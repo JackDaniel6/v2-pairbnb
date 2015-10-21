@@ -1,4 +1,13 @@
 class ReservationsController < ApplicationController
+	def index
+		if find_parent
+			@list = find_parent.reservations.all
+			render layout: false
+		else
+			@list = User.find(current_user.id).reservations.all
+		end
+	end
+
 	def create
 		input = reservation_params
 		convert_dates(input)
@@ -12,6 +21,10 @@ class ReservationsController < ApplicationController
 	end
 
   private
+    def find_parent
+      return User.find(params[:user_id]) if !params[:user_id].nil?
+    end
+
   	def reservation_params
   		params.require(:reservation).permit(:start_date, :end_date, :num_guests, :listing_id)
   	end

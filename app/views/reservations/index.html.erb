@@ -1,0 +1,18 @@
+<h3>Reservations</h3>
+
+<ul class="list-group">
+	<% @list.each do |reservation| %>
+		<li class="list-group-item">
+			<h4><%= link_to reservation.listing.title, listing_path(reservation.listing) %></h4>
+			<p>Location: <%= reservation.listing.country.name %> </p>
+			<div class="row">
+			<div class="col-sm-6">
+			Check-in Date: <%= reservation.start_date %>
+			</div>
+			<div class="col-sm-6"> 
+			Checkout Date: <%= reservation.end_date %>
+			</div>
+			</div>
+		</li>
+	<% end %>
+</ul>

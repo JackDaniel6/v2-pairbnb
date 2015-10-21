@@ -25,6 +25,8 @@
 			<%= render 'reservations/new'%>
 		</ul>
 	<% else %>
-		<h3> You have made a reservation for this listing. Please click here to view your reservations </h3>
+		<h3> 
+		<%= link_to "You have made a reservation for this listing. Please click here to view your reservations ", reservations_path %>
+		</h3>
 	<% end %>
 <% end %>
