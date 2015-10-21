@@ -19,7 +19,7 @@ class Listing < ActiveRecord::Base
 	end
 
 	def self.search(title, country_id)
-		return Listing.all.order('created_at DESC').limit(20) if title.blank? && country_id==0
+		return Listing.all.order('created_at DESC').limit(20) if title.blank? && (country_id==0 || country_id.nil? )
 	    if (!title.blank? || country_id != 0)
 	      if (!title.blank? && country_id != 0)
 	        return Listing.search_by_both(title, country_id).order("created_at DESC")
