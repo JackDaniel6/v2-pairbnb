@@ -22,7 +22,7 @@ class DatabaseSeeder
 	def self.seed_admin_user
 		User.create!(
 			name: "adminuser",
-			email: "mingxiangchan@gmail.com",
+			email: "adminuser@gmail.com",
 			password: "123456",
 			password_confirmation: "123456"
 			)
